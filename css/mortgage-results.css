@@ -1,0 +1,28 @@
+#mortgageResults {
+  min-height: 100%;
+  padding: 2.5rem;
+  background-color: var(--clr-slate-900);
+}
+
+#mortgageResults .empty-message {
+  gap: 1.2rem;
+}
+
+#mortgageResults .empty-message,
+#mortgageResults .empty-message .body-text {
+  flex-direction: column;
+}
+
+#mortgageResults .empty-message .body-text {
+  text-align: center;
+  gap: 1rem;
+}
+
+#mortgageResults .empty-message .body-text h2 {
+  font-size: 1.45rem;
+  font-weight: var(--fw-700);
+}
+
+#mortgageResults .empty-message .body-text p {
+  color: var(--clr-slate-300);
+}
