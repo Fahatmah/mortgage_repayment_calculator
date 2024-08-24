@@ -4,6 +4,62 @@
   background-color: var(--clr-slate-900);
 }
 
+#mortgageResults {
+  flex-direction: column-reverse;
+}
+
+#mortgageResults .results-container {
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+#mortgageResults .results-container .body-text h3 {
+  font-size: 1.45rem;
+  font-weight: var(--fw-700);
+  margin-bottom: 1rem;
+}
+
+#mortgageResults .results-container .body-text p {
+  color: var(--clr-slate-300);
+  line-height: 1.6;
+}
+
+#mortgageResults .results-container .results {
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.2rem 1rem;
+  border-top: 4px solid var(--clr-lime);
+  border-radius: 6px;
+  background-color: #0a202e;
+}
+
+#mortgageResults .results-container > *,
+#mortgageResults .results-container .results > * {
+  width: 100%;
+}
+
+#mortgageResults .results-container .results h4 {
+  font-size: 2.8rem;
+  font-weight: var(--fw-700);
+  color: var(--clr-lime);
+  margin-top: 0.5rem;
+}
+
+#mortgageResults .results-container .results h5 {
+  font-size: 1.48rem;
+  font-weight: var(--fw-700);
+  margin-top: 0.5rem;
+}
+
+#mortgageResults .results-container .results p {
+  color: var(--clr-slate-300);
+  font-weight: var(--fw-500);
+}
+
+#mortgageResults .results-container .results .line {
+  opacity: 0.1;
+}
+
 #mortgageResults .empty-message {
   gap: 1.2rem;
 }
@@ -11,6 +67,9 @@
 #mortgageResults .empty-message,
 #mortgageResults .empty-message .body-text {
   flex-direction: column;
+}
+#mortgageResults .empty-message.hide {
+  display: none;
 }
 
 #mortgageResults .empty-message .body-text {
