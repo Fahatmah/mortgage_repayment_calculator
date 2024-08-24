@@ -25,7 +25,7 @@
         <form id="mortgageForm" class="fl-c">
           <header class="fl-sb">
             <h1>mortgage calculator</h1>
-            <button id="clearAll">clear all</button>
+            <button id="clearAll" type="button">clear all</button>
           </header>
 
           <!-- input fields -->
@@ -33,7 +33,7 @@
             <!-- mortgage amount -->
             <div class="field fl-c">
               <div class="input-container">
-                <input type="number" id="mortgage-amount" accept="numeric"/>
+                <input type="number" id="mortgage-amount" accept="numeric" />
                 <span>$</span>
               </div>
               <label for="mortgage-amount">mortgage amount</label>
@@ -60,7 +60,7 @@
             </div>
 
             <!-- mortgage type -->
-            <div id="mortgageRadio" class="fl-sb">
+            <div id="mortgageRadio" class="fl-sb radio-error">
               <!-- repayment -->
               <div class="radio-container fl-c">
                 <input
@@ -81,6 +81,7 @@
                 />
                 <label for="interest-only">interest only</label>
               </div>
+              <!-- <div class="error-message">This field is required</div> -->
             </div>
           </section>
 

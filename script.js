@@ -4,12 +4,17 @@ const mortgageTerm = document.getElementById('mortgage-term')
 const interestRate = document.getElementById('interest-rate')
 const repaymentButton = document.getElementById('repayment')
 const interestOnlyButton = document.getElementById('interest-only')
+const clearAllButton = document.getElementById('clearAll')
+
+clearAllButton.addEventListener('click', clearFormFields)
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   let mortgageAmountVal = mortgageAmount.value
   let mortgageTermVal = mortgageTerm.value
   let interestRateVal = interestRate.value
+
+  validateForm()
 
   if (repaymentButton.checked) {
     console.log('repayment')
@@ -68,8 +73,71 @@ function calculateMortgageInterestOnly(
 // monthly payment (interest only) => 1250.00
 // total repayment (interest only) => 75000
 
-// TODO
-// FORM VALIDATION
-// CLEAR FORM BUTTON
+function clearFormFields() {
+  // form input fields
+  Array.from(form.getElementsByClassName('input-container')).forEach(
+    (field) => (field.querySelector('input').value = '')
+  )
+
+  // form radio fields
+  Array.from(form.getElementsByClassName('radio-container')).forEach(
+    (radio) => (radio.querySelector('input').checked = false)
+  )
+}
+
+function validateForm() {
+  // form input fields
+  validateInputFields()
+  validateRadioFields()
+}
+
+function validateInputFields() {
+  let inputFields = form.querySelectorAll('.field')
+  inputFields.forEach((field) => {
+    let input = field.querySelector('.input-container input')
+    let errorMessageEl = field.querySelector('.error-message')
+    errorMessageEl = createErrorMessageEl(errorMessageEl)
+
+    if (input.value === '') {
+      if (!field.querySelector('.error-message'))
+        field.insertBefore(errorMessageEl, field.firstChild)
+      field.classList.add('error')
+    } else {
+      field.classList.remove('error')
+      if (field.contains(errorMessageEl)) field.removeChild(errorMessageEl)
+    }
+  })
+}
+
+function validateRadioFields() {
+  // form radio fields
+  let radioField = form.querySelector('#mortgageRadio')
+  let radios = radioField.querySelectorAll('.radio-container input')
+
+  let errorMessageEl = radioField.querySelector('.error-message')
+  errorMessageEl = createErrorMessageEl(errorMessageEl)
+
+  let isAnyRadioChecked = Array.from(radios).some((radio) => radio.checked)
+  if (!isAnyRadioChecked) {
+    if (!radioField.querySelector('.error-message'))
+      radioField.append(errorMessageEl)
+    radioField.classList.add('radio-error')
+  } else {
+    radioField.classList.remove('radio-error')
+    if (radioField.contains(errorMessageEl))
+      radioField.removeChild(errorMessageEl)
+  }
+}
+
+function createErrorMessageEl(el) {
+  if (!el) {
+    el = document.createElement('div')
+    el.classList.add('error-message')
+    el.textContent = 'This field is required'
+  }
+
+  return el
+}
+// TODO:
 // DISPLAY RESULTS
 // DESIGN RESPONSIVENESS

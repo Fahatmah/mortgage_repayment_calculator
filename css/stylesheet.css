@@ -3,6 +3,7 @@
 @import url(mortgage-type.css);
 @import url(calc-button.css);
 @import url(mortgage-results.css);
+@import url(error-validation-styles.css);
 
 *,
 *::before,
