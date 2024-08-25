@@ -12,6 +12,9 @@ mortgageAmount.addEventListener('input', (e) => addCommas(e.target))
 
 clearAllButton.addEventListener('click', () => {
   clearFormFields()
+  clearErrorFieldsStyles()
+
+  // removing results styles
   emptyMessageEl.classList.remove('hide')
   let mortgageResultsEl = document.querySelector('.results-container')
   if (mortgageResultsContainer.contains(mortgageResultsEl))
@@ -54,13 +57,13 @@ function calculateMortgageRepayment(
   numberOfPayments,
   monthlyInterestRate
 ) {
-  if (numberOfPayments > 0 && monthlyInterestRate > 0) {
-    let r = monthlyInterestRate / 100 / 12
-    let n = numberOfPayments * 12
-    let m = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
-    const totalRepayment = +(m * n).toFixed(2)
-    displayResults(+m.toFixed(2), totalRepayment)
-  }
+  // if (numberOfPayments > 0 && monthlyInterestRate > 0) {
+  let r = monthlyInterestRate / 100 / 12
+  let n = numberOfPayments * 12
+  let m = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
+  const totalRepayment = +(m * n).toFixed(2)
+  displayResults(+m.toFixed(2), totalRepayment)
+  // }
   // return [m.toFixed(2), totalRepayment.toFixed(2)].map(Number)
   // console.log([m.toFixed(2), totalRepayment.toFixed(2)].map(Number))
 }
@@ -103,6 +106,20 @@ function clearFormFields() {
   )
 }
 
+function clearErrorFieldsStyles() {
+  // clear error input styles
+  form.querySelectorAll('.field').forEach((field) => {
+    let errorMessage = field.querySelector('.error-message')
+    field.classList.remove('error')
+    if (errorMessage) field.removeChild(errorMessage)
+  })
+  // clear error radio styles
+  let radioFieldContainer = form.querySelector('#mortgageRadio')
+  let errorRadioField = radioFieldContainer.querySelector('.error-message')
+  radioFieldContainer.classList.remove('radio-error')
+  if (errorRadioField) radioFieldContainer.removeChild(errorRadioField)
+}
+
 function validateForm() {
   // form input fields
   validateInputFields()
@@ -116,10 +133,11 @@ function validateInputFields() {
     let errorMessageEl = field.querySelector('.error-message')
     errorMessageEl = createErrorMessageEl(errorMessageEl)
 
-    if (input.value === '') {
+    if (input.value === '' || input.value === '0') {
       if (!field.querySelector('.error-message'))
         field.insertBefore(errorMessageEl, field.firstChild)
       field.classList.add('error')
+      if (input.value === '0') errorMessageEl.textContent = 'Invalid input'
     } else {
       field.classList.remove('error')
       if (field.contains(errorMessageEl)) field.removeChild(errorMessageEl)
@@ -212,5 +230,4 @@ function addCommas(el) {
 }
 
 // TODO:
-// VALIDATE INPUTS e.g, 0 in mortgage term or interest rate if so, display 'invalid input'
 // DESIGN RESPONSIVENESS
