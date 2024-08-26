@@ -110,9 +110,10 @@ main #mortgageCalculator {
 
   main #mortgageCalculator {
     width: 100%;
+    align-items: flex-start;
     flex-direction: row;
-    border-radius: 2rem;
-    background-color: var(--clr-slate-900);
+    border-radius: 1.3rem;
+    background-color: var(--clr-white);
     overflow: hidden;
   }
 }

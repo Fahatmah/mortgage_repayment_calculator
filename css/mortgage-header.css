@@ -44,3 +44,16 @@ main #mortgageForm {
 #mortgageForm header #clearAll:hover::before {
   background-color: var(--clr-slate-900);
 }
+
+@media screen and (min-width: 700px) {
+  main #mortgageForm{
+    width: 75rem;
+    padding: 2.5rem;
+  }
+  #mortgageForm header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}

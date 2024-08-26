@@ -228,6 +228,3 @@ function addCommas(el) {
     el.value = parts.join('.')
   }
 }
-
-// TODO:
-// DESIGN RESPONSIVENESS

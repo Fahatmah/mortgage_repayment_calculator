@@ -85,3 +85,31 @@
 #mortgageResults .empty-message .body-text p {
   color: var(--clr-slate-300);
 }
+
+@media screen and (min-width: 700px) {
+  #mortgageResults {
+    width: 75rem;
+    height: 100%;
+    justify-content: flex-end;
+    aspect-ratio: 16/20;
+    border-end-start-radius: 5rem;
+    background-color: var(--clr-slate-900);
+  }
+
+  #mortgageResults .empty-message {
+    margin-top: 5rem;
+  }
+
+  #mortgageResults .results-container {
+    gap: 2rem;
+  }
+
+  #mortgageResults .results-container .results {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  #mortgageResults .results-container .results h4 {
+    font-size: 3.4rem;
+  }
+}

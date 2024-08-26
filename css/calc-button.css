@@ -13,3 +13,11 @@
 #mortgageForm button[type='submit']:hover {
   background-color: hsl(61, 70%, 52%, 0.5);
 }
+
+@media screen and (min-width: 700px) {
+  #mortgageForm button[type='submit'] {
+    width: initial;
+    margin-top: 2.6rem;
+    padding-inline: 2.6rem;
+  }
+}
