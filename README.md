@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [Repo](https://github.com/Fahatmah/mortgage_repayment_calculator.git)
+- Live Site URL: [Mortgage Repayment Calculator](https://fem-mortgage-repayment-calculator.netlify.app/)
 
 ## My process
 
