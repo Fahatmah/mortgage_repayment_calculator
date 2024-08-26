@@ -117,3 +117,17 @@ main #mortgageCalculator {
     overflow: hidden;
   }
 }
+
+footer {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer a {
+  font-size: 0.8rem;
+  color: var(--clr-slate-900);
+  text-decoration: underline;
+  background-color: hsl(204, 62%, 79%);
+}

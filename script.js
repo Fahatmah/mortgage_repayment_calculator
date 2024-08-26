@@ -228,3 +228,7 @@ function addCommas(el) {
     el.value = parts.join('.')
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  calculateMortgageRepayment(300000, 25, 5.25)
+})
